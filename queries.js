@@ -28,7 +28,13 @@ function getPerson(id, response) {
         if (err) throw err;
         console.log("Connected to database!")
         // console.log(res);
-        response.send(result)
+        if (result.length === 0) {
+            response.send(`Could not find a person with an id of ${id}`)
+        } else {
+            response.send(result)
+        }
+
+
     });
 
 
