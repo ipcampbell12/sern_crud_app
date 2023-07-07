@@ -10,6 +10,7 @@ const connection = mysql.createConnection({
 });
 
 
+
 function getPeople(response) {
     const query = "SELECT * FROM test_data";
     connection.query(query, async function (err, res) {
@@ -32,12 +33,8 @@ function getPerson(id, response) {
             response.send(`Could not find a person with an id of ${id}`)
         } else {
             response.send(result)
-        }
-
-
+        };
     });
-
-
 };
 
 function addPeople(num, response) {
@@ -77,7 +74,12 @@ function removePerson(id, response) {
         if (err) throw err;
         console.log("Connected to database!");
         console.log("Value removed!")
-        response.send(result)
+        if (result.affectedRows === 0) {
+            response.send(`Could not find a person with id of ${id}`)
+        } else {
+            response.send(result);
+        };
+
     });
 
 };
@@ -93,7 +95,11 @@ function updatePerson({ first, last, email, id }, response) {
         if (err) throw err;
         console.log("Connected to Database");
         console.log("Updated person!");
-        response.send(result)
+        if (result.affectedRows === 0) {
+            response.send(`Could not find a person with id of ${id}`)
+        } else {
+            response.send(result);
+        };
     });
 };
 
