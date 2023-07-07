@@ -1,10 +1,11 @@
 const mysql = require('mysql2');
-const { generatePeople } = require('./faker')
+const { generatePeople } = require('./faker');
+const { PASSWORD } = require('./config')
 
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Reality12',
+    password: PASSWORD,
     database: 'test_db'
 });
 
