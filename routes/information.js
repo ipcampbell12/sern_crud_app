@@ -1,7 +1,15 @@
 const express = require('express');
-const router = express.Router();
+const routerInfo = express.Router();
 const { getPeopleCount } = require('../queries');
 
 
 
-module.exports = router;
+routerInfo.get('/count', (req, res) => {
+    try {
+        getPeopleCount(res);
+    } catch (err) {
+        console.log(err.message)
+    }
+});
+
+module.exports = routerInfo;

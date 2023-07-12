@@ -11,13 +11,7 @@ router.get('/', (req, res) => {
     }
 });
 
-router.get('/count', (req, res) => {
-    try {
-        getPeopleCount(res);
-    } catch (err) {
-        console.log(err.message)
-    }
-});
+
 
 router.get('/:id', (req, res) => {
     try {

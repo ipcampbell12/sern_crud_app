@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 //use routes
 app.use('/api/people', people)
-app.use('/api/info', information)
+app.use('/api/information', information)
 //create a port
 const port = process.env.PORT || 3002;
 
