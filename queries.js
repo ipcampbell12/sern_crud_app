@@ -22,6 +22,15 @@ function getPeople(response) {
 
 };
 
+function getPeopleCount(response) {
+    const query = 'SELECT COUNT(*) AS people_count FROM test_data'
+    connection.query(query, async function (err, res) {
+        if (err) throw err;
+        console.log("Connected to database!");
+        response.send(res)
+    })
+}
+
 function getPerson(id, response) {
     const query = `SELECT * FROM test_data WHERE id=${id}`;
     connection.query(query, async function (err, result) {
@@ -108,7 +117,8 @@ module.exports = {
     removePerson: removePerson,
     updatePerson: updatePerson,
     getPeople: getPeople,
-    getPerson: getPerson
+    getPerson: getPerson,
+    getPeopleCount: getPeopleCount
 };
 
 

@@ -1,11 +1,19 @@
 const express = require('express');
 const router = express.Router();
-const { addPeople, addPerson, removePerson, updatePerson, getPeople, getPerson } = require('../queries')
+const { addPeople, addPerson, removePerson, updatePerson, getPeople, getPerson, getPeopleCount } = require('../queries')
 
 router.get('/', (req, res) => {
     try {
         getPeople(res);
 
+    } catch (err) {
+        console.log(err.message)
+    }
+});
+
+router.get('/count', (req, res) => {
+    try {
+        getPeopleCount(res);
     } catch (err) {
         console.log(err.message)
     }

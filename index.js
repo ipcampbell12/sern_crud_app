@@ -1,7 +1,8 @@
 //access package
 const express = require('express');
-const morgan = require('morgan')
-const people = require('./routes/people')
+const morgan = require('morgan');
+const people = require('./routes/people');
+const information = require('./routes/information')
 //create app instance 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 //use routes
 app.use('/api/people', people)
+app.use('/api/info', information)
 //create a port
 const port = process.env.PORT || 3002;
 
