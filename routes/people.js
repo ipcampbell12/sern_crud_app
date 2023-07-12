@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
     }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
     try {
         addPeople(req.body.number, res)
         r

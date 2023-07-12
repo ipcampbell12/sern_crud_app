@@ -20,7 +20,6 @@ function getPeople(response) {
         response.send(res)
     });
 
-
 };
 
 function getPerson(id, response) {
